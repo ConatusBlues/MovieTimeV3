@@ -1,6 +1,5 @@
-﻿<!DOCTYPE HTML>
+﻿@model IEnumerable<MovieTimeV3.Models.DTO.MovieDto>
 
-<html>
 <head>
     <title>Photon by HTML5 UP</title>
     <meta charset="utf-8" />
@@ -35,11 +34,14 @@
                 <div class="col-6 col-12-medium">
                     <header class="major">
                         <h2>
-                            Lorem ipsum dolor adipiscing<br />
-                            amet dolor consequat
+                            Movie
                         </h2>
                     </header>
-                    <p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
+                    @foreach (var movie in Model) 
+                    { 
+                        <p>@Html.DisplayFor(item => movie.Movie)</p>
+                        <br />
+                    }
                 </div>
                 <div class="col-6 col-12-medium imp-medium">
                     <span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
@@ -468,4 +470,3 @@
     <script src="/js/main.js"></script>
 
 </body>
-</html>

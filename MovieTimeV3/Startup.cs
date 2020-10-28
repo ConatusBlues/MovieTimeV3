@@ -27,6 +27,7 @@ namespace MovieTimeV3
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -34,7 +35,7 @@ namespace MovieTimeV3
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
-                    );
+                    );  
 
             });
         }

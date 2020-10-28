@@ -12,5 +12,6 @@ namespace MovieTimeV3.Controllers
         {
             return View();
         }
+
     }
 }

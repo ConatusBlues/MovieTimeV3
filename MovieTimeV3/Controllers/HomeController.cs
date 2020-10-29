@@ -17,11 +17,20 @@ namespace MovieTimeV3.Controllers
 
         [Route("")]
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //moviesModel
-            var model = movieRepository.GetMovies();
+           // var model = await movieRepository.GetMovies();
+            var model = await movieRepository.GetMovie();
             return View(model);
+        }
+
+        public async Task<IActionResult> Movie()
+        {
+            //moviesModel
+            // var model = await movieRepository.GetMovies();
+            var modelMovie = await movieRepository.GetMovie();
+            return View(modelMovie);
         }
 
     }

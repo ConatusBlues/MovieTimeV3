@@ -14,7 +14,7 @@ namespace MovieTimeV3.Data
     {
         //baseURL = open movie database bashemsideadress
         //pluss på detta med film-id och api-nyckel så får man info sen
-        private string baseURL;
+        private string baseURL = "http://www.omdbapi.com/";
         //  Loves API-nyckel
         private string apiKey = "&apikey=14521613";
         public MovieRepository(IConfiguration configuration)
@@ -35,7 +35,22 @@ namespace MovieTimeV3.Data
                 var result = JsonConvert.DeserializeObject<IEnumerable<MovieDto>>(data);
                 return result;
             }
+        }
 
+        public async Task<MovieDto> GetMovie()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                //tt3896198 = imdb-nyckel - BYT MOT SÖKQUERY SEN men behåll ?i=
+                //min test-apinyckel http://www.omdbapi.com/?i=tt3896198&apikey=14521613
+                string endpoint = $"{baseURL}?i=tt3896198{apiKey}";
+                var response = await client.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead);
+                response.EnsureSuccessStatusCode();
+                var data = await response.Content.ReadAsStringAsync();
+                //konverterar Json-objekt till läsbara data
+                var result = JsonConvert.DeserializeObject<MovieDto>(data);
+                return result;
+            }
         }
 
     }

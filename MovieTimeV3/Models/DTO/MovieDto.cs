@@ -7,6 +7,7 @@ namespace MovieTimeV3.Models.DTO
 {
     public class MovieDto
     {
-        public string Movie { get; set; }
+        //public MovieDetailsDto Movie { get; set; }
+        public IEnumerable<MovieDetailsDto> Movie { get; set; }
     }
 }

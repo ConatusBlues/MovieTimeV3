@@ -8,8 +8,10 @@ namespace MovieTimeV3.Data
 {
     public interface IMovieRepository
     {
-        Task<MovieDto> GetMovie();
-        Task<IEnumerable<MovieDto>> GetMovies();
+
+        Task<IEnumerable<MovieDto>> GetMovie();
+        //Task<MovieDetailsDto> GetMovie();
+        //Task<MovieDto> GetMovie();
 
     }
 }

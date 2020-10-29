@@ -21,7 +21,7 @@ namespace MovieTimeV3.Data
         {
             baseURL = configuration.GetValue<string>("OmdbAPI:BaseUrl");
         }
-        public async Task<IEnumerable<MovieDto>> GetMovies()
+        public async Task<IEnumerable<MovieDto>> GetMovie()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -36,8 +36,8 @@ namespace MovieTimeV3.Data
                 return result;
             }
         }
-
-        public async Task<MovieDto> GetMovie()
+        /*
+        public async Task<MovieDto> GetMovies()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -52,6 +52,6 @@ namespace MovieTimeV3.Data
                 return result;
             }
         }
-
+        */
     }
 }

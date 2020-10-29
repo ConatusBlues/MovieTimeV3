@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MovieTimeV3.Data;
+using MovieTimeV3.Infrastructure;
+using MovieTimeV3.Test;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -17,6 +21,8 @@ namespace MovieTimeV3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IMovieRepository, MovieRepository>();
+            //services.AddScoped<IMovieRepository, MovieMockRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

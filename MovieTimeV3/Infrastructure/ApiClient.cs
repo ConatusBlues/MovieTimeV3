@@ -11,7 +11,7 @@ namespace MovieTimeV3.Infrastructure
     {
         public async Task<T> GetAsync<T>(string endpoint)
         {
-            //TODO: Fixa så att koden inte upprepas
+            //TODO: Fixa så att koden inte upprep
             using (HttpClient client = new HttpClient())
             {
                 var response = await client.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead);
